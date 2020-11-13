@@ -10,8 +10,13 @@ hal_client_domain(system_app, hal_lineage_livedisplay)
 hal_client_domain(system_app, hal_lineage_touch)
 
 # Allow SetupWizard to set recovery update prop
-set_prop(system_app, recovery_update_prop)
+#set_prop(system_app, recovery_update_prop)
 
 # Allow settings to read and set prop for 'flag_combined_status_bar_signal_icons'
 set_prop(system_app, flag_system_prop);
 get_prop(system_app, flag_system_prop);
+
+# Allow OpenDelta search in cache
+allow system_app cache_file:dir r_dir_perms;
+allow system_app cache_recovery_file:dir rw_dir_perms;
+allow system_app cache_recovery_file:file create_file_perms;
