@@ -17,3 +17,8 @@ hal_client_domain(platform_app, hal_lineage_powershare)
 allow platform_app cache_file:dir { search write add_name };
 allow platform_app cache_recovery_file:dir { search write add_name };
 allow platform_app cache_recovery_file:file { create write open getattr setattr };
+
+# Allow settings to read and set prop for 'flag_combined_status_bar_signal_icons'
+set_prop(platform_app, flag_system_prop);
+get_prop(platform_app, flag_system_prop);
+
